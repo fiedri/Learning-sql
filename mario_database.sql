@@ -16,3 +16,7 @@ INSERT INTO mario_database.characters (name, homeland, favorite_color) VALUES
 ('Toad', 'Mushroom Kingdom', 'Green');
 
 UPDATE mario_database.characters SET favorite_color = 'Blue' WHERE name = 'Toad';
+
+ALTER TABLE mario_database.characters ADD PRIMARY KEY (id);
+
+CREATE TABLE mario_database.more_info();

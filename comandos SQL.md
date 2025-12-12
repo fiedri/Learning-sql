@@ -43,3 +43,16 @@ UPDATE table_name SET column_name=new_value WHERE condition;
 ```SQL
 SELECT columns FROM table_name;
 ```
+```SQL
+SELECT columns FROM table_name ORDER BY column;
+```
+
+# Configurar una clave privada
+## agregar
+```SQL
+ALTER TABLE table_name ADD PRIVATE KEY(column);
+```
+## borrar
+```SQL
+ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+```

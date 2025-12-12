@@ -1,3 +1,6 @@
+# iniciar seccion
+psql --username=nombre_users --dbname=postgres
+
 # listar base de datos
 \l
 
