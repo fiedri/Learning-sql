@@ -7,6 +7,10 @@ CREATE DATABASE nombre_base_de_datos;
 ```SQL
 ALTER DATABASE database_name RENAME TO new_database_name;
 ```
+## Borrar
+```SQL
+DROP DATABASE database_name;
+```
 
 # tablas
 ## Crear
@@ -24,6 +28,10 @@ ALTER TABLE nombre_tabla ADD COLUMN name_column DATA_TYPE;
 Cambia ADD por:
 - DROP: para eliminar
 - RENAME: para renombrar
+CAMBIAR TIPO
+```SQL
+ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;
+```
 
 # filas
 ```SQL
@@ -50,9 +58,14 @@ SELECT columns FROM table_name ORDER BY column;
 # Configurar una clave privada
 ## agregar
 ```SQL
-ALTER TABLE table_name ADD PRIVATE KEY(column);
+ALTER TABLE table_name ADD PRIMARY KEY(column);
 ```
 ## borrar
 ```SQL
 ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+```
+# configurar una clave externa
+## agregar
+```SQL
+ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
 ```

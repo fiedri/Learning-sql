@@ -1,0 +1,3 @@
+CREATE DATABASE universe;
+
+CREATE TABLE galaxy
