@@ -1,4 +1,4 @@
-# que es una inyeccion sql?
+# ¿que es una inyeccion sql?
 En la seguridad web es una vulnerabilidad, donde los atacante cambian o toman ventajas de las consultas que la pagina web hace a la base de datos. Por ejemplo un atacante puede introducir codigo malicioso de sql dentro de la consulta para correr
 Esto puede pasar en formularios de registro, barras de busquedas o parametros de url utilizando los inputs de usuario o parámetros de URL y luego usar esa entrada del usuario en interpolación o concatenación de cadenas para generar el comando SQL final.
 Con una sql injection se pueden lograr las siguientes cosas:
