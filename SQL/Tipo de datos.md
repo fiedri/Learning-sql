@@ -1,4 +1,4 @@
-# Tipos de datos en sql
+# Tipos de datos en SQL
 Al crear una tabla en sql necesitas definir el tipo de datos de cada columna, es importante saber que los tipos de datos varian dependiendo del sistema de gestion de base de datos relacional que se utilice, ejemplo: los tipos de **postgreSQL** difieren un poco de los de **MySQL**, 
 ```bash
 CREATE TABLE table_name(
