@@ -12,3 +12,6 @@ Una entidad guardada
 
 
 El cliente de una base de datos permite una gestion mas facil de las mismas
+
+# As and Order by
+As permite llamar un campo por un nombre diferente ejemplo `SELECT last_name AS apellido FROM employees`
