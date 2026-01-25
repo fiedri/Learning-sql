@@ -24,3 +24,6 @@ El cliente de una base de datos permite una gestion mas facil de las mismas
 
 ## Condiciones
 `WHERE` Permite agregar condiciones a la consulta ej: `SELECT * FROM product WHERE product_id = 30`
+
+# subconsultas
+Son consultas dentro de otras consultas
