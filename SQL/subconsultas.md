@@ -100,6 +100,18 @@ SUM(Quantity) AS total_vendido,
 (SUM(Quantity) * (SELECT Price FROM Products WHERE ProductID = OD.ProductID)) AS total_recaudado
 FROM [OrderDetails] OD GROUP BY ProductID ORDER by total_recaudado DESC
 ```
+```SQL
+SELECT FirstName, LastName, 
+(
+SELECT sum(od.Quantity) FROM [orders] o, [OrderDetails] od
+WHERE o.EmployeeID = e.EmployeeID AND o.OrderID = od.OrderID
+) as unidades_totales
+FROM [Employees] e
+WHERE unidades_totales > (SELECT AVG(unidades_totales) FROM(
+SELECT (SELECT sum(od.Quantity) FROM [orders] o, [OrderDetails] od
+WHERE o.EmployeeID = e2.EmployeeID AND o.OrderID = od.OrderID) as unidades_totales FROM [Employees] e2 GROUP by EmployeeID
+))
+```
 
 ## **Comparación directa:**
 
