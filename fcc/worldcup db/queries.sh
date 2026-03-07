@@ -1,8 +1,8 @@
 #! /bin/bash
 
-PSQL="psql --username=freecodecamp --dbname=worldcup --no-align --tuples-only -c"
+#PSQL="psql --username=freecodecamp --dbname=worldcup --no-align --tuples-only -c"
 # Do not change code above this line. Use the PSQL variable above to query your database.
-
+PSQL="psql --username=postgres --dbname=worldcuptest -t --no-align -c"
 echo -e "\nTotal number of goals in all games from winning teams:"
 echo "$($PSQL "SELECT SUM(winner_goals) FROM games")"
 
@@ -30,15 +30,18 @@ echo "$($PSQL "SELECT t.name FROM games g INNER JOIN teams t ON g.winner_id = t.
 echo -e "\nList of teams who played in the 2014 'Eighth-Final' round:"
 echo "$($PSQL "SELECT t.name FROM teams t INNER JOIN games g
 ON t.team_id = g.winner_id OR t.team_id = g.opponent_id
-WHERE g.round = 'Eighth-Final' AND g.year = 2014")"
+WHERE g.round = 'Eighth-Final' AND g.year = 2014 ORDER BY t.name ASC")"
 
 echo -e "\nList of unique winning team names in the whole data set:"
-echo "$($PSQL "SELECT DISTINCT t.name FROM teams t INNER JOIN games g ON g.winner_id = t.team_id")"
+echo "$($PSQL "SELECT DISTINCT t.name FROM teams t INNER JOIN games g ON g.winner_id = t.team_id
+ORDER BY t.name ASC")"
 
 echo -e "\nYear and team name of all the champions:"
-echo "$($PSQL "SELECT t.name FROM teams t INNER JOIN games g
-ON t.team_id = g.winner_id
-WHERE g.round = 'Final'")"
+echo "$($PSQL "SELECT CONCAT(g.year, '|', t.name) 
+               FROM teams t 
+               INNER JOIN games g ON t.team_id = g.winner_id
+               WHERE g.round = 'Final'
+               ORDER BY g.year")"
 
 echo -e "\nList of teams that start with 'Co':"
 echo "$($PSQL "SELECT name FROM teams WHERE name LIKE 'Co%'")"
