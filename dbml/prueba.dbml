@@ -1,0 +1,17 @@
+Table teams {
+    team_id int [pk, increment, not null]
+    name text [unique, not null]
+}
+Table games {
+    game_id int [pk, increment, not null]
+    year int [not null]
+    round text [not null]
+    winner_id int [not null]
+    opponent_id int [not null]
+    winner_goals int [not null]
+    opponent_goals int [not null]
+}
+
+
+Ref: games.winner_id > teams.team_id
+Ref: games.opponent_id > teams.team_id

@@ -1,0 +1,20 @@
+// customers, appointments, and services
+Table customers {
+    customer_id int [pk, increment]
+    phone varchar(20) [unique]
+    name varchar(30) [not null]
+}
+Table appointments {
+    appointment_id int [pk, increment]
+    service_id int
+    customer_id int
+    time varchar(20)
+}
+
+Table services {
+    service_id int [pk, increment]
+    name varchar(30) [not null]
+}
+
+Ref: appointments.service_id > services.service_id
+Ref: appointments.customer_id > customers.customer_id

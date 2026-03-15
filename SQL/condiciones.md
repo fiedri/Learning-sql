@@ -7,6 +7,13 @@ Ayudan a encontrar y a filtrar datos especificos para hacer diferentes operacion
 - `DELETE FROM products WHERE product_id = 30`
 - `UPDATE products SET price=20 WHERE product_id = 30`
 
+## clausala USING()
+`USING` es un 'atajo' que se utiliza para simplificar las consultas ejemplo:
+- Con ON (Tradicional):
+    ```SELECT * FROM pedidos JOIN clientes ON pedidos.id_cliente = clientes.id_cliente;```
+
+- Con USING (Simplificado):
+    ```SELECT * FROM pedidos JOIN clientes USING (id_cliente);```
 ## Operadores logicos
 - `AND`: permite ejecutar varias condiciones a la vez, tienen que cumplirse las 2 a la vez para que de verdadero
 - `OR`: Tiene que cumplirse una sola condicion para que sea verdadera
@@ -18,6 +25,7 @@ Ayudan a encontrar y a filtrar datos especificos para hacer diferentes operacion
 - `LIKE`: Permite realizar busquedas de texto parciales utilizando algo llamado `caracter comodin`, por defecto utilizarlo es exactamente igual que utilizar un `=`:
     - `%`: significa que puede haber otros caracteres antes, despues o ambas dependiendo de en que lugar se use, ej: `SELECT * FROM peoples WHERE name LIKE '%ch'`(esto puede devorlverme una lista de registro con nombres que terminen en ch, como Friedrich) o `SELECT * FROM peoples WHERE name LIKE 'F%'` (devolve una lista de registros con nombres que comienzan por f) y tambien `SELECT * FROM peoples WHERE name LIKE '%R%'` (antes de la r y despues puede tener cualquier cosa)
     - `_`: significa que puede tener cualquier cosa, ejemplo: `SELECT * FROM peoples WHERE name LIKE 'F_______h'` (devuelve resultados, en los que comience con F y termine con h, pero que entre esas 2 letras tiene 7 caracteres que pueden ser cualquier cosa), `SELECT * FROM peoples WHERE name LIKE 'Fried____'` (devuelve resultados en los que comience con Fried y tenga 4 letras despues). Ideal para asegurar que tenga una cantidad determinada de caracteres
+    - `ILIKE`: ignorara si la coincidencia es en mayusuclas o minusculas
 
 - `IS NULL` O `IS NOT NULL`: Devuelve los que son nulos o los que no son nulos
 
